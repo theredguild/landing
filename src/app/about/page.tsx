@@ -1,0 +1,20 @@
+'use client';
+
+import Navbar from "../components/Navbar";
+import BackgroundClouds from "../components/BackgroundClouds";
+import ParticlesDOM from '../components/ParticlesDOM';
+import SupportersCollaborators from '../components/SupportersCollaborators';
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen bg-black relative flex flex-col items-center justify-center">
+      <BackgroundClouds />
+      <ParticlesDOM countMobile={24} countDesktop={48} />
+      <Navbar />
+      <main className="container mx-auto px-4 pb-8 relative z-30 flex flex-col items-center justify-center w-full">
+        {/* Supporters & Collaborators Section */}
+        <SupportersCollaborators />
+      </main>
+    </div>
+  );
+}

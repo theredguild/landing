@@ -117,7 +117,7 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
       className={`scene-section-container h-screen relative${fadeOut ? ' fade-out-scene' : ''} ${customCursor.visible ? 'scene-see-more-cursor' : ''}`}
       style={{
         opacity: transitioning ? 0 : 1,
-        transition: 'opacity 0.09s',
+        transition: 'opacity 0.5s ease-in-out',
         pointerEvents: transitioning ? 'none' : 'auto',
       }}
     >
@@ -131,8 +131,6 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
         </div>
       )}
       <div className="h-screen relative overflow-hidden scene-inner-container">
-        {/* Animated DOM particles canvas */}
-        <ParticlesDOM countMobile={12} countDesktop={72} zIndexClass="z-[25]" />
         {/* Temple */}
         <div
           className="temple absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] sm:w-[48vw] md:w-[48vw] lg:w-[48vw] fade-in-up fade-in-up-delay-1 scene-temple"
@@ -321,8 +319,8 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
         </div>
 
         {/* Left Top Letters */}
-        <div className={`${getElementClasses('letters', "absolute top-[12%] left-[3%] w-[18%] h-[18%] sm:w-[10%] sm:h-[12%] md:w-[10%] md:h-[12%] lg:w-[10%] lg:h-[12%] flex justify-center items-center fade-in-up fade-in-up-delay-7 scene-letters")}`}>
-          <div className="absolute left-[140%] sm:left-[120%] md:left-[120%] lg:left-[120%] top-[85%] sm:top-[70%] md:top-[70%] lg:top-[70%] -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[36vw] sm:w-[20vw] sm:h-[18vw] md:w-[20vw] md:h-[18vw] lg:w-[20vw] lg:h-[18vw] pointer-events-none">
+        <div className={`${getElementClasses('letters', "absolute top-[12%] left-[3%] w-[22%] h-[22%] sm:w-[12%] sm:h-[14%] md:w-[12%] md:h-[14%] lg:w-[12%] lg:h-[14%] flex justify-center items-center fade-in-up fade-in-up-delay-7 scene-letters")}`}>
+          <div className="absolute left-[140%] sm:left-[120%] md:left-[120%] lg:left-[120%] top-[85%] sm:top-[70%] md:top-[70%] lg:top-[70%] -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[44vw] sm:w-[24vw] sm:h-[22vw] md:w-[24vw] md:h-[22vw] lg:w-[24vw] lg:h-[22vw] pointer-events-none">
             <Image
               src={isLettersHovered || activeElement === 'letters' ? "/assets/letters.svg" : "/assets/letters-off.svg"}
               alt="Letters"
