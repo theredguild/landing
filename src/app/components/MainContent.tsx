@@ -5,7 +5,7 @@ import Image from 'next/image';
 const TRANSITION_SCROLL = 50; // Scroll para activar transición
 
 const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onSectionEnd: () => void; transitioning?: boolean }) => {
-  const [progress, setProgress] = useState(0); // 0 a 1
+  const [, setProgress] = useState(0); // 0 a 1
   const [transitioning, setTransitioning] = useState(false);
   const [blockScroll, setBlockScroll] = useState(false);
   const [showSection, setShowSection] = useState(true);

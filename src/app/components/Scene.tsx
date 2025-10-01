@@ -7,7 +7,6 @@ import TempleOff from "./assets/TempleOff";
 import Temple from './assets/Temple';
 import Card from './Card';
 import { cardContent, CardContent } from '../data/cardContent';
-import ParticlesDOM from './ParticlesDOM';
 
 interface SceneProps {
   show: boolean;

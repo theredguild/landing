@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import BackgroundClouds from "../components/BackgroundClouds";
 import ParticlesDOM from '../components/ParticlesDOM';
 import XIcon from '../components/assets/XIcon';
-import SupportersCollaborators from '../components/SupportersCollaborators';
+import Image from 'next/image';
 
 export default function ContactPage() {
   return (
@@ -29,10 +29,10 @@ export default function ContactPage() {
               <XIcon className="w-8 h-8 text-white contact-icon" />
             </a>
             <a href="https://github.com/theredguild" className="w-14 h-14 flex items-center justify-center" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/contact-section/github-icon.svg" alt="GitHub" className="w-9 h-9 contact-icon" />
+              <Image src="/assets/contact-section/github-icon.svg" alt="GitHub" width={36} height={36} className="contact-icon" />
             </a>
             <a href="https://blog.theredguild.org/" className="w-14 h-14 flex items-center justify-center" target="_blank" rel="noopener noreferrer">
-              <img src="/assets/contact-section/blog-icon.svg" alt="Blog" className="w-14 h-14 contact-icon" />
+              <Image src="/assets/contact-section/blog-icon.svg" alt="Blog" width={56} height={56} className="contact-icon" />
             </a>
           </div>
         </div>
