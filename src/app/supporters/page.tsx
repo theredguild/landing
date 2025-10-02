@@ -5,7 +5,7 @@ import BackgroundClouds from "../components/BackgroundClouds";
 import ParticlesDOM from '../components/ParticlesDOM';
 import SupportersCollaborators from '../components/SupportersCollaborators';
 
-export default function AboutPage() {
+export default function SupportersPage() {
   return (
     <div className="min-h-screen bg-black relative flex flex-col items-center justify-center">
       <BackgroundClouds />

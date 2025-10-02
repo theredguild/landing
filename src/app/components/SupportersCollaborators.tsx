@@ -6,8 +6,8 @@ import Image from 'next/image';
 const SupportersCollaborators: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-30">
-      <span className="text-white text-lg mb-4 font-spartan-subtitle">Supporters & Collaborators</span>
-      <div className="flex flex-row gap-30">
+      <span className="text-lg sm:text-xl text-center text-white font-spartan-title px-6">Supporters & Collaborators</span>
+      <div className="flex flex-row gap-30 items-center mt-8 mb-6">
         <a href="https://ethereum.foundation/" target="_blank" rel="noopener noreferrer">
           <Image src="/assets/contact-section/ethereum-foundation.svg" alt="Ethereum Foundation" width={160} height={96} className="object-contain" />
         </a>

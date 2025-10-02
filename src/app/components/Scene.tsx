@@ -318,14 +318,14 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
         </div>
 
         {/* Left Top Letters */}
-        <div className={`${getElementClasses('letters', "absolute top-[12%] left-[3%] w-[22%] h-[22%] sm:w-[12%] sm:h-[14%] md:w-[12%] md:h-[14%] lg:w-[12%] lg:h-[14%] flex justify-center items-center fade-in-up fade-in-up-delay-7 scene-letters")}`}>
+        <div className={`${getElementClasses('letters', "absolute top-[12%] left-[5%] w-[22%] h-[15%] sm:w-[12%] sm:h-[14%] md:w-[12%] md:h-[14%] lg:w-[12%] lg:h-[12%] flex justify-center items-center fade-in-up fade-in-up-delay-7 scene-letters")}`}>
           <div className="absolute left-[140%] sm:left-[120%] md:left-[120%] lg:left-[120%] top-[85%] sm:top-[70%] md:top-[70%] lg:top-[70%] -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[44vw] sm:w-[24vw] sm:h-[22vw] md:w-[24vw] md:h-[22vw] lg:w-[24vw] lg:h-[22vw] pointer-events-none">
             <Image
-              src={isLettersHovered || activeElement === 'letters' ? "/assets/letters.svg" : "/assets/letters-off.svg"}
+              src={isLettersHovered || activeElement === 'letters' ? "/assets/lettersn.svg" : "/assets/lettersn-off.svg"}
               alt="Letters"
               fill
               priority
-              className={`object-contain transform origin-center transition-transform duration-300 ${(activeElement === 'letters') ? 'scale-115' : 'scale-100'}`}
+              className={`object-contain transform origin-center transition-transform duration-300 ${(activeElement === 'letters') ? 'scale-130' : 'scale-115'}`}
             />
           </div>
           <div
