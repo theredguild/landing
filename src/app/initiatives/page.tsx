@@ -15,7 +15,7 @@ export default function InitiativesPage() {
   return (
     <div className="min-h-screen bg-black relative">
       <BackgroundClouds />
-      <ParticlesDOM countMobile={24} countDesktop={48} />
+      <ParticlesDOM countMobile={12} countDesktop={24} />
       <Navbar />
       <main className="container mx-auto px-4 pt-45 pb-8 relative z-20">
         <h1 className="text-lg sm:text-xl mb-8 text-center text-white font-spartan-title px-6">Initiatives</h1>

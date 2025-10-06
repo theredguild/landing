@@ -58,7 +58,7 @@ export default function Home() {
         <BackgroundClouds onlyInScene={showSection2} />
       </div>
       {/* Global particles that persist across all sections */}
-      <ParticlesDOM countMobile={12} countDesktop={72} zIndexClass="z-[25]" />
+      <ParticlesDOM countMobile={12} countDesktop={24} zIndexClass="z-[25]" />
       <Navbar />
       <Indicators inMain={showSection1} inScene={showSection2} />
       <main className="relative min-h-[100dvh] z-10">

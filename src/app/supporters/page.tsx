@@ -9,7 +9,7 @@ export default function SupportersPage() {
   return (
     <div className="min-h-screen bg-black relative flex flex-col items-center justify-center">
       <BackgroundClouds />
-      <ParticlesDOM countMobile={24} countDesktop={48} />
+      <ParticlesDOM countMobile={12} countDesktop={24} />
       <Navbar />
       <main className="container mx-auto px-4 pb-8 relative z-30 flex flex-col items-center justify-center w-full">
         {/* Supporters & Collaborators Section */}
