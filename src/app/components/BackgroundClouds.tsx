@@ -19,7 +19,7 @@ const BackgroundClouds = ({ onlyInScene }: BackgroundCloudsProps) => {
             alt="Cloud background"
             width={359}
             height={316}
-            className="object-contain absolute inset-0 opacity-70"
+            className="object-contain absolute inset-0 opacity-85"
             priority
           />
         </div>
@@ -33,7 +33,7 @@ const BackgroundClouds = ({ onlyInScene }: BackgroundCloudsProps) => {
             alt="Cloud background"
             width={359}
             height={316}
-            className="object-contain absolute inset-0 opacity-70"
+            className="object-contain absolute inset-0 opacity-85"
             priority
           />
         </div>
