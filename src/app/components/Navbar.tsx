@@ -52,6 +52,15 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link 
+            href="/supporters" 
+            data-text="Supporters"
+            className={`transition-all duration-300 relative ${pathname === "/supporters" ? "text-[color:var(--color-primary)] font-[family-name:var(--font-pixelify-sans)] text-xs md:text-sm" : "text-xs md:text-sm"} hover:text-[color:var(--color-primary)] hover:font-[family-name:var(--font-pixelify-sans)] hover:glitch-effect`}
+          >
+            Supporters
+          </Link>
+        </li>
+        <li>
           <a 
             href="https://blog.theredguild.org/" 
             target="_blank"
@@ -107,6 +116,16 @@ const Navbar = () => {
                   onClick={closeMenu}
                 >
                   Initiatives
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/supporters" 
+                  data-text="Supporters"
+                  className={`block transition-all duration-300 relative ${pathname === "/supporters" ? "text-[color:var(--color-primary)] font-[family-name:var(--font-pixelify-sans)] text-lg" : "text-lg"} hover:text-[color:var(--color-primary)] hover:font-[family-name:var(--font-pixelify-sans)] hover:glitch-effect`}
+                  onClick={closeMenu}
+                >
+                  Supporters
                 </Link>
               </li>
               <li>

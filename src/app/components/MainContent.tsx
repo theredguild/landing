@@ -2,21 +2,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const TEXT = 'Advancing crypto security with research, tools and resources for the public good.';
-const COLOR_START = { r: 255, g: 255, b: 255 };
-const COLOR_END = { r: 247, g: 57, b: 47 }; // Rojo
-const TRANSITION_SCROLL = 500;
+const TRANSITION_SCROLL = 50; // Scroll para activar transición
 
-function lerpColor(a: { r: number; g: number; b: number }, b: { r: number; g: number; b: number }, t: number) {
-  return {
-    r: Math.round(a.r + (b.r - a.r) * t),
-    g: Math.round(a.g + (b.g - a.g) * t),
-    b: Math.round(a.b + (b.b - a.b) * t),
-  };
-}
-
-const MainContent = ({ onSectionEnd }: { onSectionEnd: () => void }) => {
-  const [progress, setProgress] = useState(0); // 0 a 1
+const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onSectionEnd: () => void; transitioning?: boolean }) => {
+  const [, setProgress] = useState(0); // 0 a 1
   const [transitioning, setTransitioning] = useState(false);
   const [blockScroll, setBlockScroll] = useState(false);
   const [showSection, setShowSection] = useState(true);
@@ -37,7 +26,7 @@ const MainContent = ({ onSectionEnd }: { onSectionEnd: () => void }) => {
           setBlockScroll(false);
           window.scrollTo({ top: 0, behavior: 'auto' });
           onSectionEnd();
-        }, 400);
+        }, 500); // Match fade duration
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -45,11 +34,11 @@ const MainContent = ({ onSectionEnd }: { onSectionEnd: () => void }) => {
   }, [transitioning, blockScroll, onSectionEnd]);
 
   useEffect(() => {
-    document.body.style.overflow = transitioning || blockScroll ? 'hidden' : '';
+    document.body.style.overflow = (transitioning || blockScroll || parentTransitioning) ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
-  }, [transitioning, blockScroll]);
+  }, [transitioning, blockScroll, parentTransitioning]);
 
   const lines = [
     'Advancing crypto security',
@@ -73,9 +62,9 @@ const MainContent = ({ onSectionEnd }: { onSectionEnd: () => void }) => {
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 10,
-          opacity: transitioning ? 0 : 1,
-          transition: 'opacity 0.09s',
-          pointerEvents: transitioning ? 'none' : 'auto',
+          opacity: (transitioning || parentTransitioning) ? 0 : 1,
+          transition: 'opacity 0.5s ease-in-out',
+          pointerEvents: (transitioning || parentTransitioning) ? 'none' : 'auto',
         }}
       >
         <div className="flex flex-col items-center gap-6 w-full max-w-[800px]">
@@ -89,33 +78,23 @@ const MainContent = ({ onSectionEnd }: { onSectionEnd: () => void }) => {
               sizes="169px"
             />
           </div>
-          <h1 className="text-base sm:text-xl lg:text-4xl text-center w-11/12 md:w-[45%] min-h-[120px] flex items-center justify-center font-spartan-title">
+          <h1 className="text-base sm:text-xl lg:text-4xl text-center w-11/12 md:w-[45%] min-h-[120px] flex items-center justify-center font-spartan-title text-white">
             <div className="flex flex-col items-center gap-2">
-              {lines.map((line, lineIndex) => {
-                const startIndex = TEXT.indexOf(line);
-                return (
-                  <div key={lineIndex} className="flex">
-                    {line.split('').map((char, charIndex) => {
-                      const index = startIndex + charIndex;
-                      const t = Math.max(0, Math.min(1, progress * TEXT.length - index));
-                      const color = lerpColor(COLOR_START, COLOR_END, t);
-                      const isActive = t >= 1;
-                      return (
-                        <span
-                          key={charIndex}
-                          className={isActive ? 'font-pixelify-sans' : 'font-spartan-title'}
-                          style={{
-                            color: isActive ? `rgb(${color.r},${color.g},${color.b})` : '#666666',
-                            transition: 'color 0.3s, font-family 0.3s',
-                          }}
-                        >
-                          {char === ' ' ? '\u00A0' : char}
-                        </span>
-                      );
-                    })}
-                  </div>
-                );
-              })}
+              {lines.map((line, lineIndex) => (
+                <div key={lineIndex} className="flex">
+                  {line.split('').map((char, charIndex) => (
+                    <span
+                      key={charIndex}
+                      className="font-spartan-title"
+                      style={{
+                        color: '#ffffff',
+                      }}
+                    >
+                      {char === ' ' ? '\u00A0' : char}
+                    </span>
+                  ))}
+                </div>
+              ))}
             </div>
           </h1>
         </div>
