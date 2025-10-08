@@ -20,8 +20,8 @@ interface ParticlesDOMProps {
 }
 
 const ParticlesDOM: React.FC<ParticlesDOMProps> = ({
-  countMobile = 24,
-  countDesktop = 48,
+  countMobile = 12,
+  countDesktop = 24,
   fadeIn = true,
   zIndexClass = 'z-20',
 }) => {
