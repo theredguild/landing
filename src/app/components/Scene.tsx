@@ -247,7 +247,7 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
         {activeCard && (
           <>
             <div className="fixed inset-0 z-[999]" onClick={handleCloseCard} />
-            <div className="fixed top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1000] w-full px-2 sm:px-0 max-w-[95vw] sm:max-w-[420px]">
+            <div className="fixed top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1000] w-full px-2 sm:px-0 max-w-[95vw] sm:max-w-[420px]">
               <div onClick={e => e.stopPropagation()}>
                 <Card
                   title={activeCard.title}
