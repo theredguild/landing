@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-8 left-1/2 -translate-x-1/2 w-11/12 md:w-[45%] bg-[#191919] text-white px-4 md:px-10 py-2 rounded-full flex items-center justify-between gap-4 md:gap-8 lg:gap-12 border border-white/50 font-spartan-body z-[60]">
+    <nav className="fixed top-8 left-1/2 -translate-x-1/2 w-11/12 max-w-[620px] bg-[#191919] text-white px-4 md:px-10 py-2 rounded-full flex items-center justify-between gap-4 md:gap-8 lg:gap-12 border border-white/50 font-spartan-body z-[60]">
       <div className="flex items-center gap-2">
         <Link href="/" onClick={closeMenu}>
           <Image
