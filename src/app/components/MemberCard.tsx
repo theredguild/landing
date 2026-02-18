@@ -9,6 +9,22 @@ interface MemberCardProps {
   member: MemberProfile;
 }
 
+const toSafeExternalUrl = (value?: string): string | null => {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+      return parsed.toString();
+    }
+    return null;
+  } catch {
+    return null;
+  }
+};
+
 const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
   const initials =
     member.alias
@@ -17,11 +33,11 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
       .join("")
       .slice(0, 2)
       .toUpperCase() || member.name.slice(0, 2).toUpperCase();
+  const fallbackGithubAvatar = member.githubUsername
+    ? `https://github.com/${encodeURIComponent(member.githubUsername)}.png?size=256`
+    : undefined;
   const avatarUrl =
-    member.avatar ||
-    (member.githubUsername
-      ? `https://github.com/${member.githubUsername}.png?size=256`
-      : undefined);
+    toSafeExternalUrl(member.avatar) || toSafeExternalUrl(fallbackGithubAvatar);
 
   return (
     <article className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#101010]/70 backdrop-blur-[12px] p-6 md:p-8 shadow-[0_0_40px_rgba(247,57,47,0.12)]">

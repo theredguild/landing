@@ -12,6 +12,18 @@ interface CardProps {
   variant?: 'default' | 'ethos';
 }
 
+const toSafeExternalUrl = (value: string): string | null => {
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+      return parsed.toString();
+    }
+    return null;
+  } catch {
+    return null;
+  }
+};
+
 const Card: React.FC<CardProps> = ({
   title,
   description,
@@ -65,30 +77,34 @@ const Card: React.FC<CardProps> = ({
               </button>
             )}
             <h2 className={`text-white font-spartan-title mb-4 ${isEthos ? 'text-xl md:text-2xl pr-10' : 'text-xl'}`}>{title}</h2>
-            <p className={`font-spartan-body ${isEthos ? 'text-sm text-white/72 leading-relaxed' : 'text-base text-white/80'}`} 
-               dangerouslySetInnerHTML={{ __html: description.replace(
-                 /<a /g,
-                 "<a style='text-decoration:underline;color:#f7392f;' "
-               ) }} 
-            />
+            <p className={`font-spartan-body ${isEthos ? 'text-sm text-white/72 leading-relaxed' : 'text-base text-white/80'}`}>
+              {description}
+            </p>
           </div>
           {links && links.length > 0 ? (
             <div className={`flex flex-col gap-3 mt-6 ${isEthos ? 'pt-2 border-t border-white/10' : ''}`}>
-              {links.map((link, idx) => (
-                <a
-                  key={idx}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`font-spartan-subtitle transition-colors underline underline-offset-2 ${
-                    isEthos
-                      ? 'text-white/90 hover:text-white text-sm decoration-white/60'
-                      : 'text-white hover:text-white/80 text-base decoration-white'
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
+              {links.map((link, idx) => {
+                const safeUrl = toSafeExternalUrl(link.url);
+                if (!safeUrl) {
+                  return null;
+                }
+
+                return (
+                  <a
+                    key={idx}
+                    href={safeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`font-spartan-subtitle transition-colors underline underline-offset-2 ${
+                      isEthos
+                        ? 'text-white/90 hover:text-white text-sm decoration-white/60'
+                        : 'text-white hover:text-white/80 text-base decoration-white'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
           ) : (
             <a 

@@ -10,6 +10,22 @@ interface MemberPreviewCardProps {
   onSelect: () => void;
 }
 
+const toSafeExternalUrl = (value?: string): string | null => {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol === "https:" || parsed.protocol === "http:") {
+      return parsed.toString();
+    }
+    return null;
+  } catch {
+    return null;
+  }
+};
+
 const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
   member,
   isActive,
@@ -22,16 +38,16 @@ const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
       .join("")
       .slice(0, 2)
       .toUpperCase() || member.name.slice(0, 2).toUpperCase();
+  const fallbackGithubAvatar = member.githubUsername
+    ? `https://github.com/${encodeURIComponent(member.githubUsername)}.png?size=256`
+    : undefined;
   const avatarUrl =
-    member.avatar ||
-    (member.githubUsername
-      ? `https://github.com/${member.githubUsername}.png?size=256`
-      : undefined);
+    toSafeExternalUrl(member.avatar) || toSafeExternalUrl(fallbackGithubAvatar);
   const socials = [
-    { key: "github", label: "GH", href: member.socials?.github },
-    { key: "x", label: "X", href: member.socials?.x },
-    { key: "linkedin", label: "IN", href: member.socials?.linkedin },
-    { key: "website", label: "WEB", href: member.socials?.website },
+    { key: "github", label: "GH", href: toSafeExternalUrl(member.socials?.github) },
+    { key: "x", label: "X", href: toSafeExternalUrl(member.socials?.x) },
+    { key: "linkedin", label: "IN", href: toSafeExternalUrl(member.socials?.linkedin) },
+    { key: "website", label: "WEB", href: toSafeExternalUrl(member.socials?.website) },
   ];
 
   return (
