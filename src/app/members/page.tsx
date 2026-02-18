@@ -32,8 +32,7 @@ export default function MembersPage() {
           </h1>
           <p className="mt-4 text-sm text-white/70 font-spartan-body">
             Contributors presented as playable profiles: a mix of ethos, skills,
-            and tactical focus. Please, don't take this too seriously.
-            
+            and tactical focus. Please, don&apos;t take this too seriously.
           </p>
           <p className="mt-2 text-xs text-white/50 font-spartan-body">
             Select a member card to open the full profile.
