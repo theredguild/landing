@@ -748,6 +748,13 @@ body::-webkit-scrollbar {
   font-size: 0.875rem;
 }
 
+.font-manrope-body {
+  font-family: var(--font-manrope), 'Spartan', sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
 /* Pixelify Sans class for active characters */
 .font-pixelify-sans {
   font-family: var(--font-pixelify-sans);
