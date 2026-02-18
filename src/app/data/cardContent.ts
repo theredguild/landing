@@ -44,12 +44,16 @@ export const cardContent: CardContentMap = {
   },
   topRightLights: {
     title: "Security Frameworks",
-    description: "A curated resource full of best practices and potential pitfalls in crypto security, collaborating with industry experts at the <a href='https://www.securityalliance.org/' target='_blank' rel='noopener noreferrer'>Security Alliance (SEAL)</a>.",
+    description: "A curated resource full of best practices and potential pitfalls in crypto security, collaborating with industry experts at Security Alliance (SEAL).",
     buttonText: "Learn & contribute",
     links: [
       {
         label: "Learn & contribute",
         url: "https://frameworks.securityalliance.dev"
+      },
+      {
+        label: "Security Alliance (SEAL)",
+        url: "https://www.securityalliance.org/"
       }
     ]
   },

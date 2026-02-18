@@ -69,6 +69,19 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
     };
   }, [show, transitioning, onBack]);
 
+  React.useEffect(() => {
+    if (!activeCard) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveCard(null);
+        setActiveElement(null);
+        setIsTempleHovered(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeCard]);
+
   // Handle custom cursor
   useEffect(() => {
     if (!customCursor.visible || !isDesktop) return;
@@ -245,21 +258,20 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
         </div>
 
         {activeCard && (
-          <>
-            <div className="fixed inset-0 z-[999]" onClick={handleCloseCard} />
-            <div className="fixed top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[1000] w-full px-2 sm:px-0 max-w-[95vw] sm:max-w-[420px]">
-              <div onClick={e => e.stopPropagation()}>
-                <Card
-                  title={activeCard.title}
-                  description={activeCard.description}
-                  buttonText={activeCard.buttonText}
-                  links={activeCard.links}
-                  onClose={handleCloseCard}
-                  onExplore={handleExplore}
-                />
-              </div>
+          <div className="fixed inset-0 z-[999] flex items-center justify-center px-4">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={handleCloseCard} />
+            <div className="relative z-10 w-full max-w-[560px] max-h-[85vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+              <Card
+                title={activeCard.title}
+                description={activeCard.description}
+                buttonText={activeCard.buttonText}
+                links={activeCard.links}
+                onClose={handleCloseCard}
+                onExplore={handleExplore}
+                variant="ethos"
+              />
             </div>
-          </>
+          </div>
         )}
 
         {/* Bottom Left Flower */}

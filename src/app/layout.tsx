@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Pixelify_Sans } from "next/font/google";
+import { Inter, Pixelify_Sans, Manrope } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,6 +12,12 @@ const pixelifySans = Pixelify_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-pixelify-sans",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-manrope",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -56,7 +62,7 @@ export default function RootLayout({
         <link rel="icon" href="/assets/navbar-logo.svg" type="image/svg+xml" />
       </head>
       <body
-        className={`${inter.variable} ${pixelifySans.variable} antialiased`}
+        className={`${inter.variable} ${pixelifySans.variable} ${manrope.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}
