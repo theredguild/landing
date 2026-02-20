@@ -116,11 +116,13 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             <div className="mt-3">
               <RadarChart stats={member.radar} />
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 text-[10px] font-pixelify-sans text-white/60 uppercase tracking-[0.16em]">
+            <div className="mt-4 grid grid-cols-2 gap-2 text-[10px] text-white/60 tracking-[0.14em]">
               {member.radar.map((stat) => (
                 <div key={stat.label} className="flex items-center justify-between rounded-lg bg-white/5 px-2 py-1">
-                  <span>{stat.label}</span>
-                  <span className="text-white/90">{stat.value}</span>
+                  <span className="font-pixelify-sans uppercase">{stat.label}</span>
+                  <span className="font-manrope-body tabular-nums text-[12px] text-white/92">
+                    {stat.value}
+                  </span>
                 </div>
               ))}
             </div>

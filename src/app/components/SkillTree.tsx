@@ -193,7 +193,7 @@ const SkillTree: React.FC<SkillTreeProps> = ({ tiers, careerPath }) => {
                   {activeDependencies.map((dependency) => (
                     <span
                       key={`${activeBadge.id}-${dependency.label}`}
-                      className="inline-flex items-center gap-1.5 rounded-md border border-[#f7392f]/35 bg-[#f7392f]/10 px-2 py-1 text-[10px] text-[#ffd6d3] font-manrope-body"
+                      className="inline-flex items-center gap-1 rounded-md border border-[#f7392f]/35 bg-[#f7392f]/10 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.08em] text-[#ffd6d3] font-pixelify-sans"
                     >
                       <span>{dependency.label}</span>
                       <LevelPips level={dependency.level} compact />

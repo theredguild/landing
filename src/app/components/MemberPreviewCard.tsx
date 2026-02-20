@@ -52,6 +52,15 @@ const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
 
   return (
     <article
+      role="button"
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onSelect();
+        }
+      }}
       className={`relative w-full max-w-[320px] overflow-hidden rounded-2xl border p-2.5 text-left transition-all ${
         isActive
           ? "border-[#f7392f]/70 bg-[#1a1111]/92 shadow-[0_0_24px_rgba(247,57,47,0.22)]"
@@ -59,7 +68,7 @@ const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
       }`}
     >
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(130deg,rgba(255,255,255,0.05),transparent,rgba(255,255,255,0.02))]" />
-      <button type="button" onClick={onSelect} className="relative z-10 w-full text-left">
+      <div className="relative z-10 w-full text-left cursor-pointer">
         <div className="flex items-start justify-between gap-3">
           <div className="flex min-w-0 flex-1 items-start gap-2.5">
             <div className="relative aspect-square h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/15 bg-gradient-to-br from-[#2a0f0f] via-[#1a0f0f] to-[#0d0d0d]">
@@ -101,7 +110,7 @@ const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
             </div>
           </div>
         </div>
-      </button>
+      </div>
 
       <div className="relative z-10 mt-2 flex items-center gap-1.5 border-t border-white/8 pt-2">
         {socials.map((social) =>
@@ -111,6 +120,7 @@ const MemberPreviewCard: React.FC<MemberPreviewCardProps> = ({
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
               className="inline-flex items-center rounded-md border border-white/14 bg-white/5 px-1.5 py-0.5 text-[9px] uppercase tracking-[0.12em] font-pixelify-sans text-white/75 transition-colors hover:text-[color:var(--color-primary)] hover:border-[color:var(--color-primary)]/40"
             >
               {social.label}

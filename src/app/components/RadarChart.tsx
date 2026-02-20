@@ -8,6 +8,20 @@ interface RadarChartProps {
   showLabels?: boolean;
 }
 
+const RADAR_LABEL_ABBREVIATIONS: Record<string, string> = {
+  SOCIAL: "SOC",
+  EDUCATION: "EDU",
+  ART: "ART",
+  DEVELOPMENT: "DEV",
+  OPERATIONS: "OPS",
+  SECURITY: "SEC",
+};
+
+const toRadarLabel = (label: string): string => {
+  const normalized = label.trim().toUpperCase();
+  return RADAR_LABEL_ABBREVIATIONS[normalized] || normalized.slice(0, 3);
+};
+
 const RadarChart: React.FC<RadarChartProps> = ({ stats, size = 220, showLabels = true }) => {
   if (!stats.length) {
     return null;
@@ -125,7 +139,7 @@ const RadarChart: React.FC<RadarChartProps> = ({ stats, size = 220, showLabels =
               fontFamily="Spartan, sans-serif"
               letterSpacing="0.08em"
             >
-              {stat.label.toUpperCase()}
+              {toRadarLabel(stat.label)}
             </text>
           );
         })}
