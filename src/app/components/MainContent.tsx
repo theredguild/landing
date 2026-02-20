@@ -2,10 +2,24 @@
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const TRANSITION_SCROLL = 50; // Scroll para activar transición
+const TRANSITION_SCROLL = 500;
+const COLOR_START = { r: 255, g: 255, b: 255 };
+const COLOR_END = { r: 247, g: 57, b: 47 };
+
+function lerpColor(
+  a: { r: number; g: number; b: number },
+  b: { r: number; g: number; b: number },
+  t: number
+) {
+  return {
+    r: Math.round(a.r + (b.r - a.r) * t),
+    g: Math.round(a.g + (b.g - a.g) * t),
+    b: Math.round(a.b + (b.b - a.b) * t),
+  };
+}
 
 const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onSectionEnd: () => void; transitioning?: boolean }) => {
-  const [, setProgress] = useState(0); // 0 a 1
+  const [progress, setProgress] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const [blockScroll, setBlockScroll] = useState(false);
   const [showSection, setShowSection] = useState(true);
@@ -45,6 +59,7 @@ const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onS
     ' with research, tools and resources',
     ' for the public good.'
   ];
+  const text = lines.join('');
 
   if (!showSection) return null;
 
@@ -80,21 +95,31 @@ const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onS
           </div>
           <h1 className="text-base sm:text-xl lg:text-4xl text-center w-11/12 md:w-[45%] min-h-[120px] flex items-center justify-center font-spartan-title text-white">
             <div className="flex flex-col items-center gap-2">
-              {lines.map((line, lineIndex) => (
-                <div key={lineIndex} className="flex">
-                  {line.split('').map((char, charIndex) => (
-                    <span
-                      key={charIndex}
-                      className="font-spartan-title"
-                      style={{
-                        color: '#ffffff',
-                      }}
-                    >
-                      {char === ' ' ? '\u00A0' : char}
-                    </span>
-                  ))}
-                </div>
-              ))}
+              {lines.map((line, lineIndex) => {
+                const startIndex = text.indexOf(line);
+                return (
+                  <div key={lineIndex} className="flex">
+                    {line.split('').map((char, charIndex) => {
+                      const index = startIndex + charIndex;
+                      const t = Math.max(0, Math.min(1, progress * text.length - index));
+                      const color = lerpColor(COLOR_START, COLOR_END, t);
+                      const isActive = t >= 1;
+                      return (
+                        <span
+                          key={charIndex}
+                          className={isActive ? 'font-pixelify-sans' : 'font-spartan-title'}
+                          style={{
+                            color: isActive ? `rgb(${color.r},${color.g},${color.b})` : '#ffffff',
+                            transition: 'color 0.25s, font-family 0.25s',
+                          }}
+                        >
+                          {char === ' ' ? '\u00A0' : char}
+                        </span>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             </div>
           </h1>
         </div>

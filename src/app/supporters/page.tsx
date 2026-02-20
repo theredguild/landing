@@ -7,11 +7,11 @@ import SupportersCollaborators from '../components/SupportersCollaborators';
 
 export default function SupportersPage() {
   return (
-    <div className="min-h-screen bg-black relative flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-black relative">
       <BackgroundClouds />
       <ParticlesDOM countMobile={12} countDesktop={24} />
       <Navbar />
-      <main className="container mx-auto px-4 pb-8 relative z-30 flex flex-col items-center justify-center w-full">
+      <main className="container mx-auto px-4 pt-32 pb-16 relative z-30 w-full">
         {/* Supporters & Collaborators Section */}
         <SupportersCollaborators />
       </main>
