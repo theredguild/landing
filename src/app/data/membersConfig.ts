@@ -51,6 +51,20 @@ export type MemberProfile = {
   avatar?: string;
 };
 
+export type ContributorProfile = {
+  id: string;
+  name: string;
+  alias: string;
+  title: string;
+  className: string;
+  level: number;
+  projects: string[];
+  participationScore: number;
+  githubUsername?: string;
+  socials?: MemberSocials;
+  avatar?: string;
+};
+
 export const members: MemberProfile[] = [
   {
     id: "mattaereal",
@@ -60,7 +74,7 @@ export const members: MemberProfile[] = [
     level: 5,
     className: "Founder",
     githubUsername: "mattaereal",
-    avatar: "https://github.com/mattaereal.png?size=256",
+    avatar: "https://github.com/mattaereal.png?size=256&cb=20260220",
     socials: {
       github: "https://github.com/mattaereal",
       x: "https://x.com/mattaereal",
@@ -664,5 +678,65 @@ export const members: MemberProfile[] = [
         icon: "/assets/sun.svg",
       },
     ],
+  },
+];
+
+export const contributors: ContributorProfile[] = [
+  {
+    id: "eugenioclrc-contrib",
+    name: "Eugenio CLRC",
+    alias: "eugenioclrc",
+    title: "Contributor",
+    className: "Contributor",
+    level: 3,
+    projects: [
+      "Devcon 24' CTF",
+      "Ekoparty 25 Village",
+    ],
+    participationScore: 82,
+    githubUsername: "eugenioclrc",
+    avatar: "https://github.com/eugenioclrc.png?size=256",
+    socials: {
+      github: "https://github.com/eugenioclrc",
+    },
+  },
+  {
+    id: "anon-node-01",
+    name: "Anonymous Contributor",
+    alias: "anon-node-01",
+    title: "Contributor",
+    className: "Anonymous",
+    level: 2,
+    projects: [
+      "Devcon 24' CTF",
+      "Phishing Dojo QA",
+    ],
+    participationScore: 61,
+  },
+  {
+    id: "anon-village-02",
+    name: "Anonymous Contributor",
+    alias: "anon-village-02",
+    title: "Contributor",
+    className: "Anonymous",
+    level: 3,
+    projects: [
+      "Ekoparty 25 Village",
+      "Workshop Ops Support",
+    ],
+    participationScore: 74,
+  },
+  {
+    id: "anon-research-03",
+    name: "Anonymous Contributor",
+    alias: "anon-research-03",
+    title: "Contributor",
+    className: "Anonymous",
+    level: 2,
+    projects: [
+      "Threat Intel Triage",
+      "Security Advisories Drafting",
+    ],
+    participationScore: 57,
   },
 ];

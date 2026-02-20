@@ -70,19 +70,27 @@ export const cardContent: CardContentMap = {
         url: "https://updraft.cyfrin.io/courses/security"
       },
       {
-        label: "Undercover campaign at Ethereum Argentina",
-        url: "https://blog.theredguild.org/you-were-not-pwned-the-red-guild-ethereum-argentina-2023/"
+        label: "Security awareness campaign at Devconnect",
+        url: "https://blog.theredguild.org/against-all-odds-security-awareness-campaign-at-devconnect/"
       }
     ]
   },
   letters: {
     title: "Security Research & Advisories",
     description: "Public investigations and technical posts like the Ethereum 7702 accounts deep dive, VSCode extensions audit, and the SLOVENLY COMET advisory.",
-    buttonText: "Read our blog",
+    buttonText: "Read our research",
     links: [
       {
-        label: "Read our blog",
-        url: "https://blog.theredguild.org/"
+        label: "One Time Pwnage (SEAL Radar)",
+        url: "https://www.securityalliance.org/news/2025-03-slovenly-comet"
+      },
+      {
+        label: "VSCode internals: escaping containers",
+        url: "https://blog.theredguild.org/leveraging-vscode-internals-to-escape-containers/"
+      },
+      {
+        label: "Devcontainer security research (Part II)",
+        url: "https://blog.theredguild.org/where-do-you-run-your-code-part-ii-2/"
       }
     ]
   },

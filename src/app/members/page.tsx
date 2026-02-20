@@ -16,7 +16,6 @@ export default function MembersPage() {
     () => members.find((member) => member.id === selectedMemberId) || members[0],
     [selectedMemberId]
   );
-
   return (
     <div className="min-h-screen bg-black relative">
       <BackgroundClouds />
@@ -55,6 +54,7 @@ export default function MembersPage() {
             <MemberCard member={selectedMember} />
           </div>
         )}
+
       </main>
     </div>
   );
