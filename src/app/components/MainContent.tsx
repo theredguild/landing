@@ -93,7 +93,7 @@ const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onS
               sizes="169px"
             />
           </div>
-          <h1 className="text-base sm:text-xl lg:text-4xl text-center w-11/12 md:w-[45%] min-h-[120px] flex items-center justify-center font-spartan-title">
+          <h1 className="text-base sm:text-xl lg:text-4xl text-center w-11/12 md:w-[45%] min-h-[120px] flex items-center justify-center font-spartan-title text-white">
             <div className="flex flex-col items-center gap-2">
               {lines.map((line, lineIndex) => {
                 const startIndex = text.indexOf(line);
