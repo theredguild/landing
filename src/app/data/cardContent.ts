@@ -1,6 +1,7 @@
 export interface CardLink {
   label: string;
   url: string;
+  group?: number;
 }
 
 export interface CardContent {
@@ -63,19 +64,23 @@ export const cardContent: CardContentMap = {
     links: [
       {
         label: "InteractivETH",
-        url: "https://eth.theredguild.org/"
+        url: "https://eth.theredguild.org/",
+        group: 1
       },
       {
         label: "Solidity Hikes",
-        url: "/solhikes"
+        url: "https://theredguild.org/solhikes",
+        group: 1
       },
       {
         label: "Threat Dashboard",
-        url: "https://noc.theredguild.org/"
+        url: "https://noc.theredguild.org/",
+        group: 2
       },
       {
         label: "Events archive",
-        url: "https://lu.ma/theredguild"
+        url: "https://lu.ma/theredguild",
+        group: 2
       },
       {
         label: "Smart contract security course with Cyfrin",

@@ -83,28 +83,73 @@ const Card: React.FC<CardProps> = ({
           </div>
           {links && links.length > 0 ? (
             <div className={`flex flex-col gap-3 mt-6 ${isEthos ? 'pt-2 border-t border-white/10' : ''}`}>
-              {links.map((link, idx) => {
-                const safeUrl = toSafeExternalUrl(link.url);
-                if (!safeUrl) {
-                  return null;
+              {(() => {
+                const rows: Array<{ type: 'single'; link: CardLink } | { type: 'group'; links: CardLink[] }> = [];
+                let i = 0;
+                while (i < links.length) {
+                  const current = links[i];
+                  if (current.group !== undefined) {
+                    const groupMembers: CardLink[] = [];
+                    const g = current.group;
+                    while (i < links.length && links[i].group === g) {
+                      groupMembers.push(links[i]);
+                      i++;
+                    }
+                    rows.push({ type: 'group', links: groupMembers });
+                  } else {
+                    rows.push({ type: 'single', link: current });
+                    i++;
+                  }
                 }
-
-                return (
-                  <a
-                    key={idx}
-                    href={safeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`font-spartan-subtitle transition-colors underline underline-offset-2 ${
-                      isEthos
-                        ? 'text-white/90 hover:text-white text-sm decoration-white/60'
-                        : 'text-white hover:text-white/80 text-base decoration-white'
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+                return rows.map((row, rowIdx) => {
+                  if (row.type === 'single') {
+                    const safeUrl = toSafeExternalUrl(row.link.url);
+                    if (!safeUrl) return null;
+                    return (
+                      <a
+                        key={rowIdx}
+                        href={safeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`font-spartan-subtitle transition-colors underline underline-offset-2 ${
+                          isEthos
+                            ? 'text-white/90 hover:text-white text-sm decoration-white/60'
+                            : 'text-white hover:text-white/80 text-base decoration-white'
+                        }`}
+                      >
+                        {row.link.label}
+                      </a>
+                    );
+                  }
+                  return (
+                    <div key={rowIdx} className="flex flex-wrap items-center gap-x-1">
+                      {row.links.map((link, linkIdx) => {
+                        const safeUrl = toSafeExternalUrl(link.url);
+                        if (!safeUrl) return null;
+                        return (
+                          <React.Fragment key={linkIdx}>
+                            {linkIdx > 0 && (
+                              <span className={`font-spartan-subtitle ${isEthos ? 'text-white/40 text-sm' : 'text-white/40 text-base'}`}>|</span>
+                            )}
+                            <a
+                              href={safeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`font-spartan-subtitle transition-colors underline underline-offset-2 ${
+                                isEthos
+                                  ? 'text-white/90 hover:text-white text-sm decoration-white/60'
+                                  : 'text-white hover:text-white/80 text-base decoration-white'
+                              }`}
+                            >
+                              {link.label}
+                            </a>
+                          </React.Fragment>
+                        );
+                      })}
+                    </div>
+                  );
+                });
+              })()}
             </div>
           ) : (
             <a 
