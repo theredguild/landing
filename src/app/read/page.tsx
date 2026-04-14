@@ -19,8 +19,8 @@ export default function ReadPage() {
       <ParticlesDOM countMobile={8} countDesktop={16} />
       <Navbar />
 
-      <div className="flex h-screen pt-16 relative z-30">
-        <aside className="w-56 shrink-0 border-r border-white/5 bg-black/60 backdrop-blur-sm flex flex-col">
+      <div className="flex h-screen pt-20 px-4 relative z-30">
+        <aside className="w-56 shrink-0 border-r border-white/5 bg-black/60 backdrop-blur-sm flex flex-col ml-2">
           <div className="px-4 py-5 border-b border-white/5">
             <Link
               href="/"

@@ -6,8 +6,8 @@ export interface BookEntry {
 
 export const books: BookEntry[] = [
   {
-    title: "OPSEC",
+    title: "OpSec while traveling",
     filename: "opsec.pdf",
-    description: "Operational Security — A Red Team essential",
+    description: "Your travel security companion",
   },
 ];
