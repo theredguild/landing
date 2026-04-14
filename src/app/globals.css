@@ -825,3 +825,59 @@ body::-webkit-scrollbar {
   width: 95%;
   height: 18%;
 }
+
+/* Book Reader — Double-Page Spread */
+.react-pdf__Document {
+  display: flex;
+  gap: 0.25rem;
+  align-items: stretch;
+}
+
+.book-page-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.book-page-wrap.book-page-left {
+  box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 3px 0 0 3px;
+}
+
+.book-page-wrap.book-page-right {
+  box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 0 3px 3px 0;
+}
+
+.book-page {
+  background: white;
+  border-radius: inherit;
+}
+
+.book-page canvas {
+  display: block !important;
+}
+
+.book-page .react-pdf__Page__textContent,
+.book-page .react-pdf__Page__annotations {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.book-page .react-pdf__Page__textContent span,
+.book-page .react-pdf__Page__textContent br {
+  color: transparent !important;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+.book-page .react-pdf__Page__annotations .annotationLayer section {
+  position: absolute;
+}

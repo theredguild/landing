@@ -176,6 +176,20 @@ const Navbar = () => {
           </li>
 
           <li>
+            <Link
+              href="/read"
+              data-text="Library"
+              className={`transition-all duration-300 relative ${
+                pathname === "/read"
+                  ? "text-[color:var(--color-primary)] text-[11px] 2xl:text-sm"
+                  : "text-[11px] 2xl:text-sm"
+              } hover:text-[color:var(--color-primary)] hover:glitch-effect focus-visible:text-[color:var(--color-primary)] focus-visible:outline-none`}
+            >
+              Library
+            </Link>
+          </li>
+
+          <li>
             <a
               href="https://blog.theredguild.org/"
               target="_blank"
@@ -323,6 +337,20 @@ const Navbar = () => {
                     onClick={closeMenu}
                   >
                     Our Ethos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/read"
+                    data-text="Library"
+                    className={`block transition-all duration-300 relative ${
+                      pathname === "/read"
+                        ? "text-[color:var(--color-primary)] text-lg"
+                        : "text-lg"
+                    } hover:text-[color:var(--color-primary)] hover:glitch-effect focus-visible:text-[color:var(--color-primary)] focus-visible:outline-none`}
+                    onClick={closeMenu}
+                  >
+                    Library
                   </Link>
                 </li>
                 <li>
