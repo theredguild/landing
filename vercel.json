@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/solhikes",
+      "destination": "https://solhikes.vercel.app/solhikes"
+    },
+    {
+      "source": "/solhikes/:path*",
+      "destination": "https://solhikes.vercel.app/solhikes/:path*"
+    }
+  ]
+}

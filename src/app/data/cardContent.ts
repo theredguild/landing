@@ -62,11 +62,23 @@ export const cardContent: CardContentMap = {
     description: "We organize, coordinate and participate in conferences, workshops and hackathons. With a strong foothold in LATAM.",
     links: [
       {
+        label: "InteractivETH",
+        url: "https://eth.theredguild.org/"
+      },
+      {
+        label: "Solidity Hikes",
+        url: "/solhikes"
+      },
+      {
+        label: "Threat Dashboard",
+        url: "https://noc.theredguild.org/"
+      },
+      {
         label: "Events archive",
         url: "https://lu.ma/theredguild"
       },
       {
-        label: "Smart contract security course with Cyrin",
+        label: "Smart contract security course with Cyfrin",
         url: "https://updraft.cyfrin.io/courses/security"
       },
       {
