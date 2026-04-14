@@ -105,14 +105,10 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
     setIsTempleHovered(false);
   };
 
-  const handleElementClick = (elementId: string, cardContent: CardContent) => {
+  const handleElementClick = (elementId: string, cardData: CardContent) => {
     if (activeElement) return;
-    setActiveCard(cardContent);
+    setActiveCard(cardData);
     setActiveElement(elementId);
-  };
-
-  const handleExplore = () => {
-    console.log('Explorar clickeado:', activeCard?.title);
   };
 
   const getElementClasses = (elementId: string, baseClasses: string) => {
@@ -264,10 +260,9 @@ const Scene: React.FC<SceneProps> = ({ show, transitioning, onBack }) => {
               <Card
                 title={activeCard.title}
                 description={activeCard.description}
-                buttonText={activeCard.buttonText}
-                links={activeCard.links}
+                primaryLink={activeCard.primaryLink}
+                secondaryLinks={activeCard.secondaryLinks}
                 onClose={handleCloseCard}
-                onExplore={handleExplore}
                 variant="ethos"
               />
             </div>

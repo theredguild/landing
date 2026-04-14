@@ -1,14 +1,13 @@
 export interface CardLink {
   label: string;
   url: string;
-  group?: number;
 }
 
 export interface CardContent {
   title: string;
   description: string;
-  buttonText?: string;
-  links?: CardLink[];
+  primaryLink?: CardLink;
+  secondaryLinks?: CardLink[];
 }
 
 export interface CardContentMap {
@@ -24,63 +23,46 @@ export const cardContent: CardContentMap = {
   temple: {
     title: "Phishing Dojo",
     description: "Face the most notorious scam and phishing threats in the web3 ecosystem with the Phishing Dojo's immersive challenges. Can you spot them all?",
-    buttonText: "Enter the Phishing Dojo",
-    links: [
-      {
-        label: "Enter the Phishing Dojo",
-        url: "https://phishingdojo.com/"
-      }
-    ]
+    primaryLink: {
+      label: "Enter the Phishing Dojo",
+      url: "https://phishingdojo.com/"
+    }
   },
   leftLight: {
     title: "Damn Vulnerable DeFi",
     description: "The renowned challenges to dive into real-world smart contract security, featuring the most vulnerable Solidity contracts ever witnessed.",
-    buttonText: "Play now",
-    links: [
-      {
-        label: "Play now",
-        url: "https://www.damnvulnerabledefi.xyz/"
-      }
-    ]
+    primaryLink: {
+      label: "Play now",
+      url: "https://www.damnvulnerabledefi.xyz/"
+    }
   },
   topRightLights: {
     title: "Security Frameworks",
     description: "A curated resource full of best practices and potential pitfalls in crypto security, collaborating with industry experts at Security Alliance (SEAL).",
-    buttonText: "Learn & contribute",
-    links: [
-      {
-        label: "Learn & contribute",
-        url: "https://frameworks.securityalliance.dev"
-      },
-      {
-        label: "Security Alliance (SEAL)",
-        url: "https://www.securityalliance.org/"
-      }
-    ]
+    primaryLink: {
+      label: "Learn & contribute",
+      url: "https://frameworks.securityalliance.dev"
+    }
   },
   tree: {
     title: "Education & awareness",
     description: "We organize, coordinate and participate in conferences, workshops and hackathons. With a strong foothold in LATAM.",
-    links: [
+    secondaryLinks: [
       {
         label: "InteractivETH",
-        url: "https://eth.theredguild.org/",
-        group: 1
+        url: "https://eth.theredguild.org/"
       },
       {
         label: "Solidity Hikes",
-        url: "https://theredguild.org/solhikes",
-        group: 1
+        url: "https://theredguild.org/solhikes"
       },
       {
         label: "Threat Dashboard",
-        url: "https://noc.theredguild.org/",
-        group: 2
+        url: "https://noc.theredguild.org/"
       },
       {
         label: "Events archive",
-        url: "https://lu.ma/theredguild",
-        group: 2
+        url: "https://lu.ma/theredguild"
       },
       {
         label: "Smart contract security course with Cyfrin",
@@ -94,9 +76,8 @@ export const cardContent: CardContentMap = {
   },
   letters: {
     title: "Security Research & Advisories",
-    description: "Public investigations and technical posts like the Ethereum 7702 accounts deep dive, VSCode extensions audit, and the SLOVENLY COMET advisory.",
-    buttonText: "Read our research",
-    links: [
+    description: "Public investigations and technical posts like the Ethereum 7702 accounts deep dive, VSCode extensions audit, and the SLOVENLY COMET advisory.",
+    secondaryLinks: [
       {
         label: "One Time Pwnage (SEAL Radar)",
         url: "https://www.securityalliance.org/news/2025-03-slovenly-comet"
@@ -114,7 +95,7 @@ export const cardContent: CardContentMap = {
   flower: {
     title: "Open-Source Tooling",
     description: "We build open-source repositories to promote safer development environments.",
-    links: [
+    secondaryLinks: [
       {
         label: "Web3 DevContainer",
         url: "https://github.com/theredguild/devcontainer"
@@ -129,4 +110,4 @@ export const cardContent: CardContentMap = {
       }
     ]
   }
-}; 
+};

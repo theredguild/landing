@@ -8,11 +8,10 @@ import BackgroundClouds from "../components/BackgroundClouds";
 import ParticlesDOM from '../components/ParticlesDOM';
 
 export default function InitiativesPage() {
-  const handleExplore = (title: string) => {
-    console.log('Explorar clickeado:', title);
-  };
-
   const totalInitiatives = Object.keys(cardContent).length;
+
+  const initiativeEntries = Object.entries(cardContent).filter(([, c]) => !!c.primaryLink);
+  const resourceEntries = Object.entries(cardContent).filter(([, c]) => !c.primaryLink && !!c.secondaryLinks);
 
   return (
     <div className="min-h-screen bg-black relative">
@@ -50,19 +49,35 @@ export default function InitiativesPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-0 sm:px-8 overflow-visible">
-          {Object.entries(cardContent).map(([key, content]) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[200px] gap-10 px-0 sm:px-8 overflow-visible">
+          {initiativeEntries.map(([key, content]) => (
+            <div
               key={key}
-              className="relative w-auto overflow-visible"
+              className="relative w-full overflow-visible"
             >
               <Card
                 title={content.title}
                 description={content.description}
-                buttonText={content.buttonText}
-                links={content.links}
+                primaryLink={content.primaryLink}
+                secondaryLinks={content.secondaryLinks}
                 variant="ethos"
-                onExplore={() => handleExplore(content.title)}
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[360px] gap-10 mt-10 px-0 sm:px-8 overflow-visible">
+          {resourceEntries.map(([key, content]) => (
+            <div
+              key={key}
+              className="relative w-full overflow-visible"
+            >
+              <Card
+                title={content.title}
+                description={content.description}
+                primaryLink={content.primaryLink}
+                secondaryLinks={content.secondaryLinks}
+                variant="ethos"
               />
             </div>
           ))}
@@ -70,4 +85,4 @@ export default function InitiativesPage() {
       </main>
     </div>
   );
-} 
+}
