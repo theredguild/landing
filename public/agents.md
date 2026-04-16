@@ -25,10 +25,11 @@ Our initiatives turn security knowledge into practical impact: training, tooling
 - **Phishing Dojo**: Face the most notorious scam and phishing threats in the web3 ecosystem with the Phishing Dojo's immersive challenges. Can you spot them all? [Enter the Phishing Dojo](https://phishingdojo.com/)
 - **Damn Vulnerable DeFi**: The renowned challenges to dive into real-world smart contract security, featuring the most vulnerable Solidity contracts ever witnessed. [Explore Damn Vulnerable DeFi](https://www.damnvulnerabledefi.xyz/)
 - **Security Frameworks**: A curated resource full of best practices and potential pitfalls in crypto security, collaborating with industry experts at Security Alliance (SEAL). [Browse the Security Frameworks](https://frameworks.securityalliance.org/)
-- **Education & awareness**: We organize, coordinate and participate in conferences, workshops and hackathons. With a strong foothold in LATAM.
+- **Education & awareness**: We organize, coordinate and participate in conferences, workshops and hackathons, including our Ethereum security hub at [eth.theredguild.org](https://eth.theredguild.org/). With a strong foothold in LATAM.
 - **Security Research & Advisories**: Public investigations and technical posts like the Ethereum 7702 accounts deep dive, VSCode extensions audit, and the SLOVENLY COMET advisory.
 - **Open-Source Tooling**: We build open-source repositories to promote safer development environments.
 - **Blog**: Long-form writeups on security research, incident analysis, and guild updates. [Read The Red Guild blog](https://blog.theredguild.org/)
+- **YouTube channel**: Talks, workshops, and live sessions from the guild. [Watch The Red Guild on YouTube](https://youtube.com/@watchtheredguild)
 
 ## Members
 
