@@ -1,0 +1,19 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "theredguild_profile",
+  "name_for_human": "The Red Guild",
+  "description_for_model": "Read-only profile of The Red Guild: a collective of security researchers and hackers. Contains links, projects, and professional information.",
+  "description_for_human": "The Red Guild's profile and projects",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "none"
+  },
+  "logo_url": "https://theredguild.org/favicon.ico",
+  "contact_email": "hello@theredguild.org",
+  "legal_info_url": "https://theredguild.org",
+  "homepage_url": "https://theredguild.org",
+  "profile_url": "https://theredguild.org/agents.md",
+  "category": "professional_profile"
+}
