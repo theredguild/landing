@@ -12,7 +12,6 @@ export default function SupportersPage() {
       <ParticlesDOM countMobile={12} countDesktop={24} />
       <Navbar />
       <main className="container mx-auto px-4 pt-32 pb-16 relative z-30 w-full">
-        {/* Supporters & Collaborators Section */}
         <SupportersCollaborators />
       </main>
     </div>
