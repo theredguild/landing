@@ -1,0 +1,31 @@
+# The Red Guild
+
+> Advancing crypto security with research, tools, and resources for the public good.
+
+The Red Guild is a security collective devoted to protecting the open crypto ecosystem through research, education, and open-source tooling. We investigate threats, teach defenders, and ship practical tools that raise the baseline for everyone.
+
+Important notes:
+
+- We emphasize community-first collaboration, open knowledge, and responsible disclosure.
+- Our work blends adversarial rigor with public-good intent.
+- We focus on practical, repeatable security wins across research, education, and open-source tooling.
+
+## Docs & pages
+
+- [Main site](https://theredguild.org/): Overview of The Red Guild, initiatives, and public resources.
+- [Members](https://theredguild.org/members): Roster of members with profiles, skills, and focus areas.
+- [Contact](https://theredguild.org/contact): Contact information, disclosure channels, and escalation guidance.
+- [Blog](https://blog.theredguild.org/): Long-form writeups on security research, incident analysis, and guild updates.
+
+## Initiatives
+
+- [Phishing Dojo](https://phishingdojo.com/): Immersive challenges to practice spotting scam and phishing threats common in the web3 ecosystem.
+- [Damn Vulnerable DeFi](https://www.damnvulnerabledefi.xyz/): Real-world smart contract security challenges built on intentionally vulnerable Solidity contracts.
+- [Security Frameworks](https://frameworks.securityalliance.org/): Curated crypto security best practices and pitfalls, in collaboration with Security Alliance (SEAL).
+- [Ethereum security hub](https://eth.theredguild.org/): Ethereum security hub at events, including conferences, workshops, and hackathons with a strong foothold in LATAM.
+- [The Red Guild YouTube channel](https://youtube.com/@watchtheredguild): Talks, workshops, and live sessions from the guild.
+
+## Contact
+
+- [Intel and info reports](https://t.me/seal_tips_bot): Channel for intel and information reports related to security issues.
+- [Serious active incidents](https://t.me/seal_911_bot): Escalation channel for serious active incidents; ask for Matta for escalation context.
