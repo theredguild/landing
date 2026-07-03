@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import GivethSupportCard from "./GivethSupportCard";
 
 const SupportersCollaborators: React.FC = () => {
 	return (
@@ -41,11 +40,6 @@ const SupportersCollaborators: React.FC = () => {
 					</p>
 				</div>
 			</div>
-
-			<GivethSupportCard
-				variant="supporters"
-				className="mt-6 w-full max-w-4xl"
-			/>
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12 md:gap-20 items-center mt-8 mb-6">
 				<a

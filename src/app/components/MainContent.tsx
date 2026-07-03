@@ -18,10 +18,7 @@ function lerpColor(
   };
 }
 
-const MainContent = ({
-  onSectionEnd,
-  transitioning: parentTransitioning,
-}: { onSectionEnd: () => void; transitioning?: boolean }) => {
+const MainContent = ({ onSectionEnd, transitioning: parentTransitioning }: { onSectionEnd: () => void; transitioning?: boolean }) => {
   const [progress, setProgress] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const [blockScroll, setBlockScroll] = useState(false);
@@ -85,7 +82,7 @@ const MainContent = ({
           pointerEvents: (transitioning || parentTransitioning) ? 'none' : 'auto',
         }}
       >
-        <div className="flex flex-col items-center gap-6 w-full max-w-[920px] px-4 sm:px-6">
+        <div className="flex flex-col items-center gap-6 w-full max-w-[800px]">
           <div className="w-[169px] h-[169px] relative flex-shrink-0 [&>*]:!opacity-100 [&>*]:!transition-none">
             <Image
               src="/assets/trg-logo.svg"
